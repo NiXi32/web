@@ -1272,18 +1272,34 @@ h6 {
     border-radius: 2px;
 }
 
+/* 🔹 Cuadros más pequeños y distribución centrada */
 .links-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 25px;
     justify-content: center;
+    align-items: start;
+}
+
+/* 🔹 En pantallas grandes: 4 arriba y 3 centrados abajo */
+@media (min-width: 992px) {
+    .links-grid {
+        grid-template-columns: repeat(4, 1fr);
+        justify-content: center;
+    }
+
+    /* Centrar los últimos 3 cuadros */
+    .links-grid .public-link:nth-last-child(-n+3) {
+        grid-column: span 1;
+        justify-self: center;
+    }
 }
 
 .public-link {
     display: flex;
     flex-direction: column;
     background: white;
-    padding: 30px 25px;
+    padding: 22px 18px; /* un poco más compacto */
     border-radius: var(--radius);
     box-shadow: var(--shadow-md);
     text-decoration: none;
@@ -1294,6 +1310,9 @@ h6 {
     position: relative;
     overflow: hidden;
     border: 1px solid rgba(0, 0, 0, 0.05);
+    width: 90%;
+    max-width: 250px; /* define el tamaño máximo */
+    margin: 0 auto;
 }
 
 .public-link:focus {
@@ -1307,23 +1326,22 @@ h6 {
 }
 
 .icon-container {
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
 
 .public-link .icon-img {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     object-fit: contain;
     margin: 0 auto;
-    display: block;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-    border-radius: 50%;
-    padding: 15px;
-    color: white;
-    font-size: 1.8rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    border-radius: 50%;
+    padding: 12px;
+    color: white;
+    font-size: 1.6rem;
     transition: var(--transition);
 }
 
@@ -1332,28 +1350,28 @@ h6 {
 }
 
 .public-link h3 {
-    margin-bottom: 15px;
-    font-size: 1.3rem;
+    margin-bottom: 12px;
+    font-size: 1.2rem;
     color: var(--secondary);
     font-weight: 600;
 }
 
 .public-link p {
     color: #555;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     line-height: 1.6;
     flex-grow: 1;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
 
-/* efecto mas informacion */
+/* 🔹 Efecto “más información” */
 .link-hover-indicator {
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--primary);
     font-weight: 600;
-    margin-top: 15px;
+    margin-top: 12px;
     opacity: 0;
     transform: translateY(10px);
     transition: var(--transition);
@@ -1372,7 +1390,6 @@ h6 {
 .public-link:hover .link-hover-indicator i {
     transform: translateX(5px);
 }
-
 
 /* ============================================= */
 /* SECCIÓN DE VIDEOS EN LÍNEA RECTA */
@@ -2518,4 +2535,5 @@ footer {
     input, select, textarea {
         font-size: 16px !important;
     }
+
 }
