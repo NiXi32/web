@@ -231,7 +231,7 @@ function setupMunicipalitiesCarousel() {
                 `Asunto: ${asunto}\n\n` +
                 `Mensaje:\n${mensaje}`;
 
-            const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=informes.siamperu@hotmail.com&su=${encodeURIComponent(
+            const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=rs.siamsoft@gmail.com&su=${encodeURIComponent(
                 asunto
             )}&body=${encodeURIComponent(cuerpo)}`;
 
